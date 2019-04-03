@@ -49,6 +49,8 @@ class Generator implements GeneratorInterface
      */
     protected $logger;
 
+	protected $eventDispatcher;
+	
     /**
      * Construct the generator
      */
@@ -56,6 +58,7 @@ class Generator implements GeneratorInterface
     {
         $this->service = null;
         $this->types = array();
+		$this->eventDispatcher = new EventDispatcher();
     }
 
     /**
@@ -223,6 +226,10 @@ class Generator implements GeneratorInterface
             }
         }
 
+		foreach ($types as $type) {
+			$this->emit('class', $type);
+		}
+		
         $output->save($service, $types);
     }
 
@@ -246,4 +253,12 @@ class Generator implements GeneratorInterface
     {
         $this->logger = $logger;
     }
+	
+	public function on($event, $callable) {
+		return $this->eventDispatcher->on($event, $callable);
+	}
+	
+	public function emit($event, $callable){
+		return $this->eventDispatcher->emit($event, $callable);
+	}
 }

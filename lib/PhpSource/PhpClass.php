@@ -50,6 +50,13 @@ class PhpClass extends PhpElement
      */
     private $implements;
 
+	/**
+     *
+     * @var string[]
+     * @access private
+     */
+	private $traits;
+	
     /**
      *
      * @var string
@@ -109,6 +116,7 @@ class PhpClass extends PhpElement
         $this->identifier = $identifier;
         $this->access = '';
         $this->extends = $extends;
+		$this->traits = array();
         $this->constants = array();
         $this->variables = array();
         $this->functions = array();
@@ -159,6 +167,13 @@ class PhpClass extends PhpElement
 
         $ret .= PHP_EOL . '{' . PHP_EOL;
 
+		if (count($this->traits) > 0) {
+            foreach ($this->traits as $trait) {
+                $ret .= 'use ' . $trait . '\';' . PHP_EOL;
+            }
+            $ret .= PHP_EOL;
+        }
+		
         if (isset($this->default)) {
             $ret .= $this->getIndentionStr() . 'const __default = ' . $this->default . ';' . PHP_EOL;
         }
@@ -215,6 +230,11 @@ class PhpClass extends PhpElement
         $this->implements = array_merge((array)$this->implements, $classes);
     }
 
+	public function addTraits($traits){
+		$traits= (array) $traits;
+		$this->traits = array_merge((array)$this->traits , $traits);
+	}
+	
     /**
      * Set default value
      *
