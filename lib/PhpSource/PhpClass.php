@@ -333,4 +333,12 @@ class PhpClass extends PhpElement
     {
         return array_key_exists($identifier, $this->functions);
     }
+	
+	/**
+	 * Returns this class comment instance
+	 * @return PhpDocComment
+	 */
+	public function PhpDocComment(){
+		return $this->comment;
+	}
 }
