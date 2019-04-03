@@ -338,7 +338,7 @@ class PhpClass extends PhpElement
 	 * Returns this class comment instance
 	 * @return PhpDocComment
 	 */
-	public function PhpDocComment(){
+	public function getComment(){
 		return $this->comment;
 	}
 }
