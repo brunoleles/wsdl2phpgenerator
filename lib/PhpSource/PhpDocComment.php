@@ -223,4 +223,14 @@ class PhpDocComment
     {
         $this->description = $description;
     }
+	
+	/**
+	 * Returns the description
+	 * 
+	 * @return string
+	 */
+	public function getDescription()
+    {
+        return $this->description;
+    }
 }
