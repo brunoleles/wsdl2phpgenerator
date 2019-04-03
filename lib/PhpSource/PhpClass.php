@@ -335,6 +335,14 @@ class PhpClass extends PhpElement
     }
 	
 	/**
+	 * 
+	 * @param PhpDocComment $value
+	 */
+	public function setComment($value){
+		$this->comment = $value;
+	}
+	
+	/**
 	 * Returns this class comment instance
 	 * @return PhpDocComment
 	 */
