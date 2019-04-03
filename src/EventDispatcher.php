@@ -27,7 +27,7 @@ class EventDispatcher {
 			return;
 		}
 		foreach ($this->events[$event] as $callable) {
-			call_user_func_array($callback, [$payload]);
+			call_user_func_array($callable, [$payload]);
 		}
 	}
 
