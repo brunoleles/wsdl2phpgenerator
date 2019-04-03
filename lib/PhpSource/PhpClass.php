@@ -169,7 +169,7 @@ class PhpClass extends PhpElement
 
 		if (count($this->traits) > 0) {
             foreach ($this->traits as $trait) {
-                $ret .= 'use ' . $trait . '\';' . PHP_EOL;
+                $ret .= 'use ' . $trait . ';' . PHP_EOL;
             }
             $ret .= PHP_EOL;
         }
