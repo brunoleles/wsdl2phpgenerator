@@ -226,6 +226,8 @@ class Generator implements GeneratorInterface
             }
         }
 
+		$this->emit('class', $service);
+		
 		foreach ($types as $type) {
 			$this->emit('class', $type);
 		}
