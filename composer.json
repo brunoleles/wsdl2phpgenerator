@@ -3,7 +3,7 @@
     "description": "Simple class library for generating php classes from a wsdl file.",
     "keywords": ["soap", "wsdl"],
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
